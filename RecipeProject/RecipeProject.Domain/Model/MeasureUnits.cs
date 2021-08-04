@@ -4,10 +4,9 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    public class Recipe
+    class MeasureUnits
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-
+        public int MeasureUnitsId { get; set; }
+        public string MeasureUnit { get; set; }
     }
 }

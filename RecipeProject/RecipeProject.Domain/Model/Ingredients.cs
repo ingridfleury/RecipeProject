@@ -4,11 +4,9 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    class User
+    class Ingredients
     {
-        public int Id { get; set; }
+        public int IngredientId { get; set; }
         public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
     }
 }
