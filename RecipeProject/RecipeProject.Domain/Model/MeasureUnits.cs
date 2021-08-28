@@ -6,7 +6,13 @@ namespace RecipeProject.Domain.Model
 {
     public class MeasureUnits
     {
+
         public int MeasureUnitsId { get; set; }
         public string MeasureUnit { get; set; }
+        public MeasureUnits(int measureUnitsId, string measureUnit)
+        {
+            MeasureUnitsId = measureUnitsId;
+            MeasureUnit = measureUnit;
+        }
     }
 }
