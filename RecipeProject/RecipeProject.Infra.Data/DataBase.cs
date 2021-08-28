@@ -1,5 +1,4 @@
-﻿using RecipeProject.
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace RecipeProject.Infra.Data

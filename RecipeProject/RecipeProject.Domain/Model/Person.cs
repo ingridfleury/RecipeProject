@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    public class Person
+    public abstract class Person
     {
 
         public string FirstName { get; set; }
