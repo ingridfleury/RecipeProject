@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    class Dificulty
+    public class Dificulty
     {
         public int DificultyId { get; set; }
     }

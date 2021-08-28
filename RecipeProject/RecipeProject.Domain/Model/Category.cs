@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    class Category
+   public class Category
     {
         public int CategoryId { get; set; }
 

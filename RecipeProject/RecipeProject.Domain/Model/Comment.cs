@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    class Comment
+    public class Comment
     {
         public int CommentId { get; set; }
         public int UserId { get; set; }
