@@ -11,13 +11,12 @@ namespace RecipeProject.Domain.Model
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public User(int id, string email, string password, string firstName, string lastName)
+        public User(int id, string email, string password) :base( firstName, lastName)
         {
             Id = id;
             Email = email;
             Password = password;
-            FirstName = firstName;
-            LastName = lastName;
+
         }
 
     }
