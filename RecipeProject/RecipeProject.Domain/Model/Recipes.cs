@@ -12,7 +12,7 @@ namespace RecipeProject.Domain.Model
         public int DificultyId { get; set; }
         public string Title { get; set; }
         public string PreparationMethod { get; set; }
-        public List<IngredientsRecipe> MyProperty { get; set; }
+        public List<IngredientsRecipe> Ingredients { get; set; }
 
     }
 }
