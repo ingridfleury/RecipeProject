@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RecipeProject.ConsoleApp\RecipeProject.ConsoleApp.csproj" />
+    <ProjectReference Include="..\RecipeProject.WebApi\RecipeProject.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>

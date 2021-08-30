@@ -13,4 +13,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RecipeProject.ConsoleApp\RecipeProject.ConsoleApp.csproj" />
+    <ProjectReference Include="..\RecipeProject.Domain\RecipeProject.Domain.csproj" />
+    <ProjectReference Include="..\RecipeProject.WebApi\RecipeProject.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>
