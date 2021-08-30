@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RecipeProject.Domain.Model;
+
+
 
 namespace RecipeProject.Infra.Data
 {

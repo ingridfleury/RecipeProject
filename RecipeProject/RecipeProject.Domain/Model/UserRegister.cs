@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    public class UserRegister : Person
+    public class UserRegister
     {
 
         public int Id { get; set; }

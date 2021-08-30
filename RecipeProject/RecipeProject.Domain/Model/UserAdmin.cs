@@ -4,19 +4,17 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    public class UserAdmin : Person
+    public class UserAdmin
     {
 
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public UserAdmin(int id, string email, string password, string firstName, string lastName)
+        public UserAdmin(int id, string email, string password)
         {
             Id = id;
             Email = email;
             Password = password;
-            FirstName = firstName;
-            LastName = lastName;
         }
 
     }
