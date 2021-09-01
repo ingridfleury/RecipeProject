@@ -7,7 +7,7 @@ namespace RecipeProject.Infra.Data
 {
     public class DataBase : DbContext
     {
-        public static DbSet<User> users;
+        public static DbSet<User> Users;
 
     }
 }
