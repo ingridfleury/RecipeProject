@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecipeProject.Domain.Model
 {
-    public class Recipes
+    public class Recipe
     {
 
         public int Id { get; set; }
@@ -13,8 +13,8 @@ namespace RecipeProject.Domain.Model
         public int DificultyId { get; set; }
         public string Name { get; set; }
         public string PreparationMethod { get; set; }
-        public List<IngredientsRecipe> Ingredients { get; set; }
-        public Recipes(int id, int userId, int categoryId, int dificultyId, string name, string preparationMethod)
+        public IEnumerable<RecipeIngredients> Ingredients { get; set; }
+        public Recipe(int id, int userId, int categoryId, int dificultyId, string name, string preparationMethod)
         {
             Id = id;
             UserId = userId;
@@ -22,7 +22,7 @@ namespace RecipeProject.Domain.Model
             DificultyId = dificultyId;
             Name = name;
             PreparationMethod = preparationMethod;
-            Ingredients = new List<IngredientsRecipe>();
+            Ingredients = new List<RecipeIngredients>();
 
         }
 

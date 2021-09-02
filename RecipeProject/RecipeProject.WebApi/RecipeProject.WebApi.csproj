@@ -11,5 +11,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RecipeProject.Infra.Data\RecipeProject.Infra.Data.csproj" />
+  </ItemGroup>
+
 
 </Project>
