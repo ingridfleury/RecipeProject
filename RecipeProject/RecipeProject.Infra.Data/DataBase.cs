@@ -7,7 +7,17 @@ namespace RecipeProject.Infra.Data
 {
     public class DataBase : DbContext
     {
-        public static DbSet<User> Users;
+        public DbSet<User> Users { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
+
+        public DataBase(DbContextOptions options) : base(options)
+        {
+
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataBase).Assembly);
+        }
 
     }
 }
