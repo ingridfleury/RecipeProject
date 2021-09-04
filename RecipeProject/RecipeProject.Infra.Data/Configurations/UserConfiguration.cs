@@ -9,7 +9,7 @@ namespace RecipeProject.Infra.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("users");
+            builder.ToTable("Users");
         }
     }
 }
