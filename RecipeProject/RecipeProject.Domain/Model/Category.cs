@@ -9,13 +9,15 @@ namespace RecipeProject.Domain.Model
         public int CategoryId { get; set; }
         public string Name { get; set; }
 
-
-        public Category(int categoryId, string name)
+        private Category() 
         {
-            CategoryId = categoryId;
+        }
+
+        public Category(string name)
+        {
             Name = name;
 
         }
 
-    }
+   }
 }

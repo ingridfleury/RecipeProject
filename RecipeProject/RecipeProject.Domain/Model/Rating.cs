@@ -12,9 +12,12 @@ namespace RecipeProject.Domain.Model
         public int RecipeId { get; set; }
         public int RatingSacale { get; set; }
         public DateTime DateTime { get; set; }
-        public Rating(int ratingId, int userId, int recipeId, int ratingSacale, DateTime dateTime)
+        private Rating()
         {
-            RatingId = ratingId;
+
+        }
+        public Rating(int userId, int recipeId, int ratingSacale, DateTime dateTime)
+        {
             UserId = userId;
             RecipeId = recipeId;
             RatingSacale = ratingSacale;

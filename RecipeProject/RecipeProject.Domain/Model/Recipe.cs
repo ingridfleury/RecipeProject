@@ -14,11 +14,13 @@ namespace RecipeProject.Domain.Model
         public string Name { get; set; }
         public string PreparationMethod { get; set; }
         public IEnumerable<RecipeIngredients> Ingredients { get; set; }
-        public Recipe(int userId, int categoryId, int dificultyId, string name, string preparationMethod)
+        private Recipe()
         {
-            UserId = userId;
-            CategoryId = categoryId;
-            DificultyId = dificultyId;
+
+        }
+        public Recipe(string name, string preparationMethod)
+        {
+
             Name = name;
             PreparationMethod = preparationMethod;
             Ingredients = new List<RecipeIngredients>();

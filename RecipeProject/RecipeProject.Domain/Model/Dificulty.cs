@@ -10,10 +10,13 @@ namespace RecipeProject.Domain.Model
 
         public int DificultyId { get; set; }
         public DificultyOption DificultyDefinition { get; set; }
-
-        public Dificulty(int dificultyId, DificultyOption dificultyDefinition)
+        private Dificulty()
         {
-            DificultyId = dificultyId;
+
+        }
+
+        public Dificulty(DificultyOption dificultyDefinition)
+        {
             DificultyDefinition = dificultyDefinition;
         }
 

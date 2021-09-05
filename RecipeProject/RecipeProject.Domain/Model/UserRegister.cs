@@ -10,9 +10,12 @@ namespace RecipeProject.Domain.Model
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public UserRegister(int id, string email, string password)
+        private UserRegister()
         {
-            Id = id;
+
+        }
+        public UserRegister(string email, string password)
+        {
             Email = email;
             Password = password;
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data;
 using System;
@@ -19,9 +20,23 @@ namespace RecipeProject.WebApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Recipe>> GetAll()
+        public async Task<IEnumerable<Recipe>> GetAll()
         {
-            return _context.Recipes.ToList();
+            return await _context.Recipes.ToListAsync();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<Recipe> GetById(int id)
+        {
+            return await _context.Recipes.FindAsync(id);
+        }
+
+        [HttpPost]
+        public async Task<Recipe> Add(Recipe recipe)
+        {
+            await _context.Recipes.AddAsync(recipe);
+            await _context.SaveChangesAsync();
+            return recipe;
         }
     }
 }

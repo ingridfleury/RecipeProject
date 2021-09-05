@@ -12,6 +12,10 @@ namespace RecipeProject.Domain.Model
         public int RecipeId { get; set; }
         public DateTime DateTime { get; set; }
         public string CommentText { get; set; }
+        private Comment()
+        {
+
+        }
 
         public Comment(int commentId, int userId, int recipeId, DateTime dateTime, string commentText)
         {
