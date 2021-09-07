@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using RecipeProject.Infra.Data;
 
 namespace RecipeProject.WebApi
@@ -26,6 +27,11 @@ namespace RecipeProject.WebApi
             {
                 options.UseSqlServer(Configuration.GetConnectionString("RecipeCS"));
             });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RecipeProject.WebAPI", Version = "v1" });
+            });
         }
 
 
@@ -36,6 +42,8 @@ namespace RecipeProject.WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RecipeWeb.Services.WebAPI v1"));
             }
 
             app.UseHttpsRedirection();
