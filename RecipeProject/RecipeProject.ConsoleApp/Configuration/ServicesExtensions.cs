@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RecipeProject.Infra.Data;
+using RecipeProject.Infra.Data.Repositories;
 
 namespace RecipeProject.ConsoleApp.Configuration
 {
@@ -22,6 +23,8 @@ namespace RecipeProject.ConsoleApp.Configuration
             });
 
             services.AddScoped<StartUp>();
+            services.AddScoped<UserConsole>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
 
