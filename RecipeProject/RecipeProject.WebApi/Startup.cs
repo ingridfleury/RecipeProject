@@ -6,34 +6,33 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RecipeProject.Infra.Data;
+using RecipeProject.Infra.IoC;
 
 namespace RecipeProject.WebApi
 {
     public class Startup
     {
+        private readonly IConfiguration _config;
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _config = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        { 
 
             services.AddControllers();
-            services.AddDbContext<DataBase>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("RecipeCS"));
-            });
+            
+            services.AddApiConfigurations(_config);
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RecipeProject.WebAPI", Version = "v1" });
             });
         }
-
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

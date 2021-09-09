@@ -19,7 +19,7 @@ namespace RecipeProject.ConsoleApp.Configuration
             services.AddScoped<StartUp>();
             services.AddScoped<UserConsole>();
 
-            services.AddOwnConfigurations(_config);
+            services.AddApiConfigurations(_config);
 
             return services;
 
