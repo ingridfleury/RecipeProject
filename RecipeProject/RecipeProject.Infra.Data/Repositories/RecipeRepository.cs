@@ -6,9 +6,9 @@ using System.Text;
 
 namespace RecipeProject.Infra.Data.Repositories
 {
-    public class RecipeProjectRepository : Repository<Recipe>
+    public class RecipeRepository : Repository<Recipe>, IRecipeRepository
     {
-        public RecipeProjectRepository(DataBase context) : base(context)
+        public RecipeRepository(DataBase context) : base(context)
         {
             
         }

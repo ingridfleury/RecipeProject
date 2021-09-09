@@ -5,10 +5,8 @@ using System.Text;
 
 namespace RecipeProject.Infra.Data.Repositories
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public interface ICategoryRepository : IRepository<Category> 
     {
-        public CategoryRepository(DataBase context) : base(context)
-        {
-        }
+
     }
 }
