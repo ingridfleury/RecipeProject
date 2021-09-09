@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecipeProject.Infra.Data.Repositories
 {
-    public interface IRecipeProjectRepository : IRepository<RecipeProject>
+    public interface IRecipeProjectRepository 
     {
     }
 }

@@ -14,7 +14,7 @@ namespace RecipeProject.Domain.Model
         public string Name { get; set; }
         public string PreparationMethod { get; set; }
         public IEnumerable<RecipeIngredients> Ingredients { get; set; }
-        private Recipe()
+        public Recipe()
         {
 
         }

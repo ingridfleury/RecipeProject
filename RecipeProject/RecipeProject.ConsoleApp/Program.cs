@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RecipeProject.ConsoleApp.Configuration;
 using RecipeProject.Infra.Data;
 using System;
 
@@ -10,16 +11,11 @@ namespace RecipeProject.ConsoleApp
     {
         static void Main(string[] args)
         {
-            IServiceCollection services = new ServiceCollection();
+            var services = ServicesExtensions.RegisterServices();
 
-            IConfiguration _config = new ConfigurationBuilder()
-                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                 .AddEnvironmentVariables()
-                 .Build();
-            services.AddDbContext<DataBase>(options =>
-            {
-                options.UseSqlServer(_config.GetConnectionString("RecipeCS"));
-            });
+            var serviceProvider = services.BuildServiceProvider();
+
+            serviceProvider.GetService<StartUp>().Run(args);
         }
     }
 }
