@@ -9,10 +9,10 @@ namespace RecipeProject.ConsoleApp
 {
     public class StartUp
     {
-        private readonly DataBase context;
-        public StartUp()
+        private readonly DataBase _context;
+        public StartUp(DataBase context)
         {
-            this.context = context;
+            this._context = context;
         }
 
         public void Run(string[] args)

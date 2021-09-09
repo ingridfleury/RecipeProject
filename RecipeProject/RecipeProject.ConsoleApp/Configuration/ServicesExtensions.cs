@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RecipeProject.Infra.IoC;
-using RecipeProject.Infra.Data;
-using RecipeProject.Infra.Data.Repositories;
 
 namespace RecipeProject.ConsoleApp.Configuration
 {
