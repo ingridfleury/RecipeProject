@@ -19,9 +19,7 @@ namespace RecipeProject.ConsoleApp.Configuration
             services.AddScoped<StartUp>();
             services.AddScoped<UserConsole>();
 
-            services = DependencyContainer.RegisterDiServices(services, _config);
-
-            services.AddConfigurations(_config);
+            services.AddOwnConfigurations(_config);
 
             return services;
 
