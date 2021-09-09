@@ -12,7 +12,7 @@ namespace RecipeProject.Domain.Model
         public int IngredientId { get; set; }
         public Ingredient Ingredient { get; set; }
 
-        private RecipeIngredients()
+        public RecipeIngredients()
         {
 
         }

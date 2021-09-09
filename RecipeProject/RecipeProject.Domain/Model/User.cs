@@ -17,8 +17,6 @@ namespace RecipeProject.Domain.Model
 
         }      
 
-        // ao construir um ctor devo usar PasswordHash or Salt?
-
 
     }
 }
