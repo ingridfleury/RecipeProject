@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RecipeProject.Infra.IoC\RecipeProject.Infra.IoC.csproj" />
     <ProjectReference Include="..\RecipeProject.WebApi\RecipeProject.WebApi.csproj" />
   </ItemGroup>
 
