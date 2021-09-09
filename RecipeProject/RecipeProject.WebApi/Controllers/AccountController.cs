@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecipeProject.Domain.Model;
@@ -13,8 +14,10 @@ using System.Threading.Tasks;
 
 namespace RecipeProject.WebApi.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : BaseController
     {
+        
         private readonly DataBase _context;
         public AccountController(DataBase context)
         {
