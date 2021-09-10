@@ -9,4 +9,8 @@
     <ProjectReference Include="..\RecipeProject.Infra.Data\RecipeProject.Infra.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+  </ItemGroup>
+
 </Project>

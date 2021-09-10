@@ -2,7 +2,7 @@
 
 namespace RecipeProject.Domain.Contracts
 {
-    public interface IRecipeService : IService<Recipe>
+    public interface IRecipeService : IService<RecipeDto>
     {
     }
 }
