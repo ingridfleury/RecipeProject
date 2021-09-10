@@ -9,15 +9,16 @@ namespace RecipeProject.ConsoleApp
 {
     public class StartUp
     {
-        private readonly DataBase _context;
-        public StartUp(DataBase context)
+        public StartUp()
         {
-            this._context = context;
         }
 
         public void Run(string[] args)
         {
-
+            Console.WriteLine("1. User List");
+            Console.WriteLine("2. User Creation");
+            Console.WriteLine("3. User Update");
+            Console.WriteLine("4. User Delete");
         }
     }
 
@@ -30,6 +31,13 @@ namespace RecipeProject.ConsoleApp
             this.userRepository = userRepository;
         }
 
+        public void Start()
+        {
+            userRepository.Create(new User()
+            {
+                Email = "ingrid@gmail.com"
+            });
+        }
 
     }
 }
