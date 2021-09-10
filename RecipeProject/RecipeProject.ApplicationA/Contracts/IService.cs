@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RecipeProject.Domain.Contracts
+namespace RecipeProject.Application.Contracts
 {
     public interface IService<TEntity> where TEntity : class
     {
@@ -10,7 +10,6 @@ namespace RecipeProject.Domain.Contracts
         IEnumerable<TEntity> GetAll();
         TEntity GetById(int id);
         TEntity Add(TEntity obj);
-
         TEntity Update(TEntity obj);
         TEntity Delete(TEntity obj);
     }

@@ -11,8 +11,7 @@ namespace RecipeProject.Application.Dto
     {
         public int RecipeId { get; set; }
         public string Name { get; set; }
-        public string PreparationMethod { get; set; }
-        public IEnumerable<RecipeIngredients> Ingredients { get; set; }
+
 
     }
 }

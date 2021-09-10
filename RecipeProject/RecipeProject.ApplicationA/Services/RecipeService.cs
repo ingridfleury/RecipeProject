@@ -1,4 +1,4 @@
-﻿using RecipeProject.Domain.Contracts;
+﻿using RecipeProject.Application.Contracts;
 using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data.Repositories;
 using System;
