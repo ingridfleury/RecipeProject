@@ -1,12 +1,8 @@
 ﻿using RecipeProject.Application.Contracts;
 using RecipeProject.Application.Dto;
-using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RecipeProject.Application.Services
 {
@@ -31,30 +27,34 @@ namespace RecipeProject.Application.Services
                 {
                     RecipeId = recipe.RecipeId,
                     Name = recipe.Name,
-
                 };
+
                 listDtos.Add(recipeDto);
 
-                return listDtos;
             }
+
+            return listDtos;
+
         }
         public RecipeDto GetById(int id)
         {
             return _recipeRepository.GetById(id);
         }
+
         public RecipeDto Add(RecipeDto obj)
         {
             return _recipeRepository.Create(obj);
         }
 
-        public RecipeDto Remove(Recipe obj)
-        {
-            return _recipeRepository.Delete((obj));
-        }
 
         public RecipeDto Update(RecipeDto obj)
         {
             return _recipeRepository.Update(obj);
+        }
+
+        public RecipeDto Delete(RecipeDto obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
