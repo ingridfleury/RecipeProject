@@ -7,6 +7,7 @@ namespace RecipeProject.Domain.Model
         public int UserId { get; set; }
         public int CategoryId { get; set; }
         public int DificultyId { get; set; }
+        public int RecipeId { get; set; }
         public string Name { get; set; }
         public string PreparationMethod { get; set; }
         public IEnumerable<RecipeIngredients> Ingredients { get; set; }

@@ -1,5 +1,6 @@
 ﻿using RecipeProject.Application.Contracts;
 using RecipeProject.Application.Dto;
+using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data.Repositories;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,8 @@ namespace RecipeProject.Application.Services
         }
         public RecipeDto GetById(int id)
         {
-            return _recipeRepository.GetById(id);
+            return _recipeRepository.GetById(obj);
+
         }
 
         public RecipeDto Add(RecipeDto obj)
