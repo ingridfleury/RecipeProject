@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RecipeProject.Application.Contracts;
 using RecipeProject.Application.Services;
-using RecipeProject.Infra.Data;
 using RecipeProject.Infra.IoC;
 
 namespace RecipeProject.WebApi
@@ -35,6 +33,8 @@ namespace RecipeProject.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RecipeProject.WebAPI", Version = "v1" });
             });
+
+            services.AddScoped<ITokenService, TokenService>();
         }
 
 
