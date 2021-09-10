@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RecipeProject.Application.Contracts;
 using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data;
 using RecipeProject.Infra.Data.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +15,14 @@ namespace RecipeProject.WebApi.Controllers
     {   
 
         private readonly DataBase _context;
-        public AccountController(DataBase context)
+        private readonly ITokenService _tokenService;
+
+        public ITokenService TokenService { get; }
+
+        public AccountController(DataBase context, ITokenService tokenService)
         {
             _context = context;
-
+            TokenService = tokenService;
         }
         [HttpPost("registerquery")]
         public async Task<ActionResult<User>> Register(string name, string email, string password)
@@ -48,7 +49,7 @@ namespace RecipeProject.WebApi.Controllers
 
         public async Task<ActionResult<RegisteredUserDto>> Register(RegisteredUserDto registeredUserDto)
         {
-            if (await UserAlreadyExists(registeredUserDto.Email))
+            if (await UserAlreadyExists(registeredUserDto.JwtToken))
             {
                 return BadRequest("Email must be unique");
             }
@@ -56,7 +57,7 @@ namespace RecipeProject.WebApi.Controllers
             var hmac = new HMACSHA512();
             var user = new User()
             {
-                Email = registeredUserDto.Email.ToLower(),
+                Email = registeredUserDto.JwtToken.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registeredUserDto.Password)),
                 PasswordSalt = hmac.Key
             };
@@ -67,7 +68,7 @@ namespace RecipeProject.WebApi.Controllers
             return new RegisteredUserDto()
             {
                 Id = user.Id,
-                Email = user.Email
+                JwtToken = _tokenService.CreateToken(user)
             };
         }
         
@@ -97,8 +98,7 @@ namespace RecipeProject.WebApi.Controllers
             return new RegisteredUserDto()
             {
                 Id = user.Id,
-                Email = user.Email,
-
+                JwtToken = _tokenService.CreateToken(user)
             };
 
 
