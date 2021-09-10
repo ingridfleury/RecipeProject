@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace RecipeProject.Domain.Model
 {
-   public class Ingredient
+    public class Ingredient
     {
 
         public int IngredientId { get; set; }

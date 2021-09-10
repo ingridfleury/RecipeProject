@@ -1,9 +1,6 @@
 ﻿using RecipeProject.Domain.Model;
-using RecipeProject.Infra.Data;
 using RecipeProject.Infra.Data.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RecipeProject.ConsoleApp
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using RecipeProject.Domain.Model.Enums;
+﻿using RecipeProject.Domain.Model.Enums;
 
 namespace RecipeProject.Domain.Model
 {

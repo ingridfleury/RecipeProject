@@ -1,15 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RecipeProject.Application.Contracts;
 using RecipeProject.Application.Dto;
-using RecipeProject.Domain.Model;
-using RecipeProject.Infra.Data;
-using RecipeProject.Infra.Data.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RecipeProject.WebApi.Controllers
 {

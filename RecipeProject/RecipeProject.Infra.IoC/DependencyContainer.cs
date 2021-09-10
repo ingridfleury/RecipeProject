@@ -5,7 +5,6 @@ using RecipeProject.Application.Contracts;
 using RecipeProject.Application.Services;
 using RecipeProject.Infra.Data;
 using RecipeProject.Infra.Data.Repositories;
-using System;
 
 namespace RecipeProject.Infra.IoC
 {

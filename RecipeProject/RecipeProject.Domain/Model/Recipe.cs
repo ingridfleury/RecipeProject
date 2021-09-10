@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace RecipeProject.Domain.Model
 {
     public class Recipe
     {
-
-        public int RecipeId { get; set; }
         public int UserId { get; set; }
         public int CategoryId { get; set; }
         public int DificultyId { get; set; }

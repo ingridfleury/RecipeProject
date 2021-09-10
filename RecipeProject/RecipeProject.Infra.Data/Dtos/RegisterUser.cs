@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RecipeProject.Infra.Data.Dtos
+﻿namespace RecipeProject.Infra.Data.Dtos
 {
     public class RegisterUser
     {
