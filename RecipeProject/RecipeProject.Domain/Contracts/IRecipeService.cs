@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using RecipeProject.Domain.Model;
 
 namespace RecipeProject.Domain.Contracts
 {
-    public interface IRecipeService
+    public interface IRecipeService : IService<Recipe>
     {
     }
 }
