@@ -1,4 +1,5 @@
 ﻿using RecipeProject.Application.Contracts;
+using RecipeProject.Application.Dto;
 using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data.Repositories;
 using System;
@@ -18,27 +19,40 @@ namespace RecipeProject.Application.Services
             _recipeRepository = recipeRepository;
         }
 
-        IEnumerable<Recipe> IService<Recipe>.GetAll()
+        public IEnumerable<RecipeDto> GetAll()
         {
-            return _recipeRepository.Get();
+            var list = _recipeRepository.Get();
+
+            var listDtos = new List<RecipeDto>();
+
+            foreach (var recipe in list)
+            {
+                var recipeDto = new RecipeDto()
+                {
+                    RecipeId = recipe.RecipeId,
+                    Name = recipe.Name,
+
+                };
+                listDtos.Add(recipeDto);
+
+                return listDtos;
+            }
         }
-        Recipe IService<Recipe>.Add(Recipe obj)
+        public RecipeDto GetById(int id)
+        {
+            return _recipeRepository.GetById(id);
+        }
+        public RecipeDto Add(RecipeDto obj)
         {
             return _recipeRepository.Create(obj);
         }
 
-        Recipe IService<Recipe>.Delete(Recipe obj)
+        public RecipeDto Remove(Recipe obj)
         {
-            throw new NotImplementedException();
+            return _recipeRepository.Delete((obj));
         }
 
-
-        Recipe IService<Recipe>.GetById(int id)
-        {
-            return _recipeRepository.GetById(id);
-        }
-
-        Recipe IService<Recipe>.Update(Recipe obj)
+        public RecipeDto Update(RecipeDto obj)
         {
             return _recipeRepository.Update(obj);
         }

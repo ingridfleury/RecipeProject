@@ -1,8 +1,9 @@
-﻿using RecipeProject.Domain.Model;
+﻿using RecipeProject.Application.Dto;
+using RecipeProject.Domain.Model;
 
 namespace RecipeProject.Application.Contracts
 {
-    public interface IRecipeService : IService<Recipe>
+    public interface IRecipeService : IService<RecipeDto>
     {
     }
 }

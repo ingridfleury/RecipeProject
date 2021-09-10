@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RecipeProject.Application.Contracts;
+using RecipeProject.Application.Dto;
 using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data;
 using RecipeProject.Infra.Data.Repositories;
@@ -14,42 +16,42 @@ namespace RecipeProject.WebApi.Controllers
     [Authorize]
     public class RecipeController : BaseController
     {
-        private readonly IRecipeRepository _recipeRepository;
+        private readonly IRecipeService _recipeService;
 
-        public RecipeController()
+        public RecipeController(IRecipeService recipeService)
         {
-            _recipeRepository = recipeRepository;
+            _recipeService = recipeService;
 
         }
 
         [HttpGet]
-        public IEnumerable<Recipe>  GetAll()
+        public IEnumerable<RecipeDto> GetAll()
         {
-            return _recipeRepository.Get();
+            return _recipeService.GetAll();
         }
 
         [HttpGet("id")]
-        public Recipe Get(int id)
+        public RecipeDto Get(int id)
         {
-            return _recipeRepository.GetById(id);
+            return _recipeService.GetById(id);
         }
 
         [HttpPost]
-        public Recipe Add(Recipe recipe)
+        public RecipeDto Add(RecipeDto recipe)
         {
-            return _recipeRepository.Create(recipe);
+            return _recipeService.Add(recipe);
         }
 
         [HttpPut]
-        public Recipe Update(Recipe recipe)
+        public RecipeDto Update(RecipeDto recipe)
         {
-            return _recipeRepository.Update(recipe);
+            return _recipeService.Update(recipe);
         }
 
         [HttpDelete]
-        public Recipe Remove(Recipe recipe)
+        public RecipeDto Remove(RecipeDto recipe)
         {
-            return _recipeRepository.Delete((recipe));
+            return _recipeService.Delete((recipe));
         }
     }
 }

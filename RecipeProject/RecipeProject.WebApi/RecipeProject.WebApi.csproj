@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RecipeProject.ApplicationA\RecipeProject.Application.csproj" />
     <ProjectReference Include="..\RecipeProject.Infra.Data\RecipeProject.Infra.Data.csproj" />
     <ProjectReference Include="..\RecipeProject.Infra.IoC\RecipeProject.Infra.IoC.csproj" />
   </ItemGroup>
