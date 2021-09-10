@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RecipeProject.Domain.Contracts
 {
-    public interface IRecipeProjectService
+    public interface IRecipeService
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace RecipeProject.WebApi.Controllers
 {
+    [Authorize]
     public class RecipeController : BaseController
     {
         private readonly DataBase _context;

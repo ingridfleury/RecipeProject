@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RecipeProject.Domain\RecipeProject.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

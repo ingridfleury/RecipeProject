@@ -14,10 +14,9 @@ using System.Threading.Tasks;
 
 namespace RecipeProject.WebApi.Controllers
 {
-    [AllowAnonymous]
     public class AccountController : BaseController
-    {
-        
+    {   
+
         private readonly DataBase _context;
         public AccountController(DataBase context)
         {
@@ -25,12 +24,12 @@ namespace RecipeProject.WebApi.Controllers
 
         }
         [HttpPost("registerquery")]
-        [NonAction]
-        public async Task<ActionResult<User>> Register(string email, string password)
+        public async Task<ActionResult<User>> Register(string name, string email, string password)
         {
             var hmac = new HMACSHA512();
             var user = new User()
             {
+                Name = name,
                 Email = email,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
                 PasswordSalt = hmac.Key
@@ -45,6 +44,8 @@ namespace RecipeProject.WebApi.Controllers
         }
        
         [HttpPost("register")]
+        [AllowAnonymous]
+
         public async Task<ActionResult<RegisteredUserDto>> Register(RegisteredUserDto registeredUserDto)
         {
             if (await UserAlreadyExists(registeredUserDto.Email))
@@ -71,6 +72,8 @@ namespace RecipeProject.WebApi.Controllers
         }
         
         [HttpPost("login")]
+        [AllowAnonymous]
+
         public async Task<ActionResult<RegisteredUserDto>> Login(LoginDto loginDto)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.Email == loginDto.Email);
