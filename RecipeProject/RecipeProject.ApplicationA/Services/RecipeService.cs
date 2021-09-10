@@ -1,5 +1,6 @@
 ﻿using RecipeProject.Domain.Contracts;
 using RecipeProject.Domain.Model;
+using RecipeProject.Infra.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,20 @@ namespace RecipeProject.Application.Services
 {
     public class RecipeService : IRecipeService
     {
-        public RecipeService()
-        {
+        private readonly IRecipeRepository _recipeRepository;
 
+        public RecipeService(IRecipeRepository recipeRepository)
+        {
+            _recipeRepository = recipeRepository;
+        }
+
+        IEnumerable<Recipe> IService<Recipe>.GetAll()
+        {
+            return _recipeRepository.Get();
         }
         Recipe IService<Recipe>.Add(Recipe obj)
         {
-            throw new NotImplementedException();
+            return _recipeRepository.Create(obj);
         }
 
         Recipe IService<Recipe>.Delete(Recipe obj)
@@ -24,19 +32,15 @@ namespace RecipeProject.Application.Services
             throw new NotImplementedException();
         }
 
-        IEnumerable<Recipe> IService<Recipe>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
 
         Recipe IService<Recipe>.GetById(int id)
         {
-            throw new NotImplementedException();
+            return _recipeRepository.GetById(id);
         }
 
         Recipe IService<Recipe>.Update(Recipe obj)
         {
-            throw new NotImplementedException();
+            return _recipeRepository.Update(obj);
         }
     }
 }

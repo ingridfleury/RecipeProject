@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RecipeProject.Domain\RecipeProject.Domain.csproj" />
+    <ProjectReference Include="..\RecipeProject.Infra.Data\RecipeProject.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -16,7 +16,7 @@ namespace RecipeProject.WebApi.Controllers
     {
         private readonly IRecipeRepository _recipeRepository;
 
-        public RecipeController(IRecipeRepository recipeRepository)
+        public RecipeController()
         {
             _recipeRepository = recipeRepository;
 
