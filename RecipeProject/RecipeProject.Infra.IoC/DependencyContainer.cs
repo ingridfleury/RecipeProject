@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RecipeProject.Application.Contracts;
+using RecipeProject.Application.Services;
 using RecipeProject.Infra.Data;
 using RecipeProject.Infra.Data.Repositories;
 using System;
@@ -32,8 +34,7 @@ namespace RecipeProject.Infra.IoC
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
-
-
+            services.AddScoped<IRecipeService, RecipeService>();
 
         }
     }

@@ -29,8 +29,6 @@ namespace RecipeProject.WebApi
 
             services.AddControllers();
 
-            services.AddScoped<IRecipeService, RecipeService>();
-
             services.AddApiConfigurations(_config);
 
             services.AddSwaggerGen(c =>
