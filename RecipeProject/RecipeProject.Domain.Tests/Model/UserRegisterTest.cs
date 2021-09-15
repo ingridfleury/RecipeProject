@@ -1,6 +1,6 @@
 ﻿namespace RecipeProject.Domain.Tests.Model
 {
-    class UserRegisterTest
+    public class UserRegisterTest
     {
     }
 }

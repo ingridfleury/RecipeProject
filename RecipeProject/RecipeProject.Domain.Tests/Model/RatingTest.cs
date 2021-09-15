@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecipeProject.Domain.Tests.Model
 {
-    class RatingTest
+    public class RatingTest
     {
     }
 }
