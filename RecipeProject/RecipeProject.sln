@@ -23,11 +23,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeProject.Infra.Data", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeProject.Domain", "RecipeProject.Domain\RecipeProject.Domain.csproj", "{FB08AFBB-7AE6-4C60-8ED2-07D343DD8D16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeProject.Application", "RecipeProject.ApplicationA\RecipeProject.Application.csproj", "{BC80BCEE-D55E-47DB-B40A-3BFB9C776AC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeProject.Application", "RecipeProject.ApplicationA\RecipeProject.Application.csproj", "{BC80BCEE-D55E-47DB-B40A-3BFB9C776AC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{495E6744-6429-4D44-956D-25757B436A95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeProject.Infra.IoC", "RecipeProject.Infra.IoC\RecipeProject.Infra.IoC.csproj", "{779DE9A3-7565-4DE0-A502-4FEA852C8E17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeProject.Infra.IoC", "RecipeProject.Infra.IoC\RecipeProject.Infra.IoC.csproj", "{779DE9A3-7565-4DE0-A502-4FEA852C8E17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeProject.Application.Tests", "RecipeProject.Application.Test\RecipeProject.Application.Tests.csproj", "{243478C2-4C7D-4529-8425-10EF33E33B8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeProject.Infra.Data.Tests", "RecipeProject.Infra.Data.Tests\RecipeProject.Infra.Data.Tests.csproj", "{CDC4144C-CF1A-4B76-A7CE-2108693F0069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeProject.Infra.IoC.Tests", "RecipeProject.Infra.IoC.Tests\RecipeProject.Infra.IoC.Tests.csproj", "{42DB79E6-56F8-4FA1-A954-FE429AB220B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeProject.ConsoleApp.Tests", "RecipeProject.ConsoleApp.Tests\RecipeProject.ConsoleApp.Tests.csproj", "{74BC649C-7397-4A03-9EAA-2E5561B9F053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeProject.WebApi.Tests", "RecipeProject.WebApi.Tests\RecipeProject.WebApi.Tests.csproj", "{D92011C0-4562-4598-A811-B963726D8536}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +69,26 @@ Global
 		{779DE9A3-7565-4DE0-A502-4FEA852C8E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{779DE9A3-7565-4DE0-A502-4FEA852C8E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{779DE9A3-7565-4DE0-A502-4FEA852C8E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{243478C2-4C7D-4529-8425-10EF33E33B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{243478C2-4C7D-4529-8425-10EF33E33B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{243478C2-4C7D-4529-8425-10EF33E33B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{243478C2-4C7D-4529-8425-10EF33E33B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC4144C-CF1A-4B76-A7CE-2108693F0069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC4144C-CF1A-4B76-A7CE-2108693F0069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC4144C-CF1A-4B76-A7CE-2108693F0069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC4144C-CF1A-4B76-A7CE-2108693F0069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42DB79E6-56F8-4FA1-A954-FE429AB220B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42DB79E6-56F8-4FA1-A954-FE429AB220B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42DB79E6-56F8-4FA1-A954-FE429AB220B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42DB79E6-56F8-4FA1-A954-FE429AB220B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74BC649C-7397-4A03-9EAA-2E5561B9F053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BC649C-7397-4A03-9EAA-2E5561B9F053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BC649C-7397-4A03-9EAA-2E5561B9F053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BC649C-7397-4A03-9EAA-2E5561B9F053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D92011C0-4562-4598-A811-B963726D8536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D92011C0-4562-4598-A811-B963726D8536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D92011C0-4562-4598-A811-B963726D8536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D92011C0-4562-4598-A811-B963726D8536}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +102,11 @@ Global
 		{BC80BCEE-D55E-47DB-B40A-3BFB9C776AC4} = {DBE9D164-F24A-4860-B10D-D31F197A14D3}
 		{495E6744-6429-4D44-956D-25757B436A95} = {B74921CA-A0E8-43B0-B4EC-66FC1E3CC0C8}
 		{779DE9A3-7565-4DE0-A502-4FEA852C8E17} = {495E6744-6429-4D44-956D-25757B436A95}
+		{243478C2-4C7D-4529-8425-10EF33E33B8B} = {DBE9D164-F24A-4860-B10D-D31F197A14D3}
+		{CDC4144C-CF1A-4B76-A7CE-2108693F0069} = {99D96B11-BCBB-41E4-92C8-5A30386AFDDC}
+		{42DB79E6-56F8-4FA1-A954-FE429AB220B8} = {495E6744-6429-4D44-956D-25757B436A95}
+		{74BC649C-7397-4A03-9EAA-2E5561B9F053} = {D90A60F4-A828-4838-B1AD-6A8DD251A7E2}
+		{D92011C0-4562-4598-A811-B963726D8536} = {614782CB-8010-4CAA-BA9B-D2E99F06BE3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F070AE74-31C5-47C6-B3C7-2E5E5FBB088B}
