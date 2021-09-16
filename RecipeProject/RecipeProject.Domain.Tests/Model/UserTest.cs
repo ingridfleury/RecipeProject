@@ -12,9 +12,11 @@ namespace RecipeProject.Domain.Tests.Model
             // *: existe uma convenção para a definição do nome do método de teste?
         {
             //Arrange
-            byte[] PasswordHash = null;  // *: qual tipo da variável devo utilizar para o teste?
-            byte[] PasswordSalt = null;
+            string PasswordHash = "qualquercoisa";  // *: qual tipo da variável devo utilizar para o teste?
+            string PasswordSalt = "014058BE15231033838DA0D8C5EBDC22";
 
+            byte[] passwordHash2 = System.Text.Encoding.ASCII.GetBytes(PasswordHash);
+            byte[] passwordSalt2 = System.Text.Encoding.ASCII.GetBytes(PasswordSalt);
             //Act
             _sut = new User();
 
@@ -26,6 +28,9 @@ namespace RecipeProject.Domain.Tests.Model
 
 
         }
+
+        //public void PasswordValidationEqual()
+        //public void PasswordValidationNotEqual()
 
     }
 }

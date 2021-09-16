@@ -39,24 +39,72 @@ namespace RecipeProject.Application.Services
         }
         public RecipeDto GetById(int id)
         {
-            return _recipeRepository.GetById(obj);
+            Recipe recipe = new()
+            {
+                RecipeId = id
+            };
+
+            Recipe r = _recipeRepository.GetById(id);
+
+            RecipeDto returnRecipe = new()
+            {
+                RecipeId = r.RecipeId
+            };
+
+            return returnRecipe;
 
         }
 
         public RecipeDto Add(RecipeDto obj)
         {
-            return _recipeRepository.Create(obj);
+            Recipe recipe = new()
+            {
+                RecipeId = obj.RecipeId
+            };
+
+            Recipe r = _recipeRepository.Create(recipe);
+
+            RecipeDto returnRecipe = new()
+            {
+                RecipeId = r.RecipeId
+            };
+
+            return returnRecipe;
         }
 
 
         public RecipeDto Update(RecipeDto obj)
         {
-            return _recipeRepository.Update(obj);
+            Recipe recipe = new()
+            {
+                RecipeId = obj.RecipeId
+            };
+
+            Recipe r = _recipeRepository.Update(recipe);
+
+            RecipeDto returnRecipe = new()
+            {
+                RecipeId = r.RecipeId
+            };
+
+            return returnRecipe;
         }
 
         public RecipeDto Delete(RecipeDto obj)
         {
-            throw new NotImplementedException();
+            Recipe recipe = new()
+            {
+                RecipeId = obj.RecipeId
+            };
+
+            Recipe r = _recipeRepository.Delete(recipe);
+
+            RecipeDto returnRecipe = new()
+            {
+                RecipeId = r.RecipeId
+            };
+
+            return returnRecipe;
         }
     }
 }
