@@ -5,6 +5,8 @@ namespace RecipeProject.Domain.Model
     public class User 
     {
         private string _Name;
+        private string _Email;
+
 
         public int Id { get; set; }
         public string Name
@@ -21,7 +23,21 @@ namespace RecipeProject.Domain.Model
                 }
             }
         }
-        public string Email { get; set; }
+        public string Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                if (ValidateEmail(value))
+                {
+                    _Email = value;
+                }
+
+            }
+        }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public User()
@@ -57,7 +73,7 @@ namespace RecipeProject.Domain.Model
             return true;
         }
 
-        private void ValidateEmail(string email)
+        private bool ValidateEmail(string email)
         {
             if (string.IsNullOrEmpty(email))
             {
@@ -68,6 +84,8 @@ namespace RecipeProject.Domain.Model
             {
                 throw new ArgumentException("E-mail can't be less then 5");
             }
+
+            return true;
         }
     }
 }
