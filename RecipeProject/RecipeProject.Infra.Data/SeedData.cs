@@ -6,20 +6,22 @@ using System.Text;
 namespace RecipeProject.Infra.Data
 {
     public class SeedData
-    { 
-        public static void Seed()
+    {
+        private static readonly Random r = new Random();
+        public static List<User> Seed(int userNumbers)
         {
-            //criar users
-            List<Recipe> recipes = new List<Recipe>();
+            List<User> users = new List<User>();
+            for (int i = 0; i < userNumbers; i++)
+            {
+                users.Add(CreateUser());
+            }
 
-
-
-            //criar receitas
-
-            //criar categorias
         }
 
-
-
+        private static User CreateUser(int id, string name, byte[] passwordHash)
+        {
+            id = id,   
+            
+        }
     }
 }
