@@ -5,8 +5,8 @@ namespace RecipeProject.Domain.Model
     public class User 
     {
         private string _Name;
-        private string _Email;
 
+        private string _Email;
 
         public int Id { get; set; }
         public string Name
@@ -40,10 +40,7 @@ namespace RecipeProject.Domain.Model
         }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
-        public User()
-        {
-
-        }      
+       
 
         private bool ValidateName(string name)
         {

@@ -20,8 +20,7 @@ namespace RecipeProject.Infra.Data
 
         private static User CreateUser(int id, string name, byte[] passwordHash)
         {
-            id = id,   
-            
+            return ;
         }
     }
 }
