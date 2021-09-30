@@ -28,17 +28,17 @@ namespace RecipeProject.WebApi
         {
             // add authorization
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-               {
-                   options.TokenValidationParameters = new TokenValidationParameters()
-                   {
-                       ValidateIssuerSigningKey = true,
-                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"])),
-                       ValidateIssuer = false,
-                       ValidateAudience = false
-                   };
-               });
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //    .AddJwtBearer(options =>
+            //   {
+            //       options.TokenValidationParameters = new TokenValidationParameters()
+            //       {
+            //           ValidateIssuerSigningKey = true,
+            //           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"])),
+            //           ValidateIssuer = false,
+            //           ValidateAudience = false
+            //       };
+            //   });
 
             services.AddApiConfigurations(_config);
 
@@ -64,10 +64,12 @@ namespace RecipeProject.WebApi
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
+            app.UseCors(x => { x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();});
 
-            app.UseAuthentication();
+            
+
+            //app.UseAuthentication();
 
             app.UseAuthorization();
 

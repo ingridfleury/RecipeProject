@@ -8,7 +8,7 @@ namespace RecipeProject.Infra.Data
         public static List<Recipe> Seed()
         {
             List<Recipe> recipes = new List<Recipe>();
-            recipes.Add(new Recipe("", "")
+            recipes.Add(new Recipe()
             {
 
                 RecipeId = 1,
@@ -21,7 +21,7 @@ namespace RecipeProject.Infra.Data
                     Name = "Ingrid",
                 },
 
-                Category = new Category("")
+                Category = new Category()
                 {
                     CategoryId = 1,
                     Name = "Portugal",
@@ -45,7 +45,7 @@ namespace RecipeProject.Infra.Data
 
             });
 
-            recipes.Add(new Recipe("", "")
+            recipes.Add(new Recipe()
             {
 
                 RecipeId = 2,
@@ -58,7 +58,7 @@ namespace RecipeProject.Infra.Data
                     Name = "Jaqueline",
                 },
 
-                Category = new Category("")
+                Category = new Category()
                 {
                     CategoryId = 2,
                     Name = "Brasil",
@@ -84,7 +84,7 @@ namespace RecipeProject.Infra.Data
 
             });
 
-            recipes.Add(new Recipe("", "")
+            recipes.Add(new Recipe()
             {
 
                 RecipeId = 3,
@@ -97,7 +97,7 @@ namespace RecipeProject.Infra.Data
                     Name = "Camila",
                 },
 
-                Category = new Category("")
+                Category = new Category()
                 {
                     CategoryId = 3 ,
                     Name = "China",
@@ -115,7 +115,7 @@ namespace RecipeProject.Infra.Data
 
             });
 
-            recipes.Add(new Recipe("", "")
+            recipes.Add(new Recipe()
             {
 
                 RecipeId = 4,
@@ -128,7 +128,7 @@ namespace RecipeProject.Infra.Data
                     Name = "Sérgio",
                 },
 
-                Category = new Category("")
+                Category = new Category()
                 {
                     CategoryId = 4,
                     Name = "Turquia",
@@ -153,7 +153,7 @@ namespace RecipeProject.Infra.Data
 
             });
 
-            recipes.Add(new Recipe("", "")
+            recipes.Add(new Recipe()
             {
 
                 RecipeId = 5,
@@ -166,7 +166,7 @@ namespace RecipeProject.Infra.Data
                     Name = "Ricardo",
                 },
 
-                Category = new Category("")
+                Category = new Category()
                 {
                     CategoryId = 5,
                     Name = "Japão",
@@ -185,7 +185,7 @@ namespace RecipeProject.Infra.Data
 
             });
 
-            recipes.Add(new Recipe("", "")
+            recipes.Add(new Recipe()
             {
 
                 RecipeId = 6,
@@ -198,7 +198,7 @@ namespace RecipeProject.Infra.Data
                     Name = "João",
                 },
 
-                Category = new Category("")
+                Category = new Category()
                 {
                     CategoryId = 6,
                     Name = "Espanha",

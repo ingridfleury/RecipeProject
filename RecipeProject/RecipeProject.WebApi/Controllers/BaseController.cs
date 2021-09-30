@@ -5,7 +5,7 @@ namespace RecipeProject.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
 
     public class BaseController : ControllerBase
     {

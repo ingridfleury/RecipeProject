@@ -88,9 +88,9 @@ namespace RecipeProject.Domain.Model
                 throw new ArgumentNullException("Preparation can't be empty or null");
             }
 
-            if (preparation.Length >= 500)
+            if (preparation.Length >= 1000)
             {
-                throw new ArgumentException("The preparation can't has more then 500 characters.");
+                throw new ArgumentException("The preparation can't has more then 1000 characters.");
             }
 
             return true;

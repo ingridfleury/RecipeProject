@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace RecipeProject.WebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class RecipeController : BaseController
     {
         private readonly IRecipeService _recipeService;

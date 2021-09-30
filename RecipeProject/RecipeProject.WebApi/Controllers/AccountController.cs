@@ -17,7 +17,6 @@ namespace RecipeProject.WebApi.Controllers
         private readonly DataBase _context;
         private readonly ITokenService _tokenService;
 
-        public ITokenService TokenService { get; }
 
         public AccountController(DataBase context, ITokenService tokenService)
         {
@@ -47,9 +46,9 @@ namespace RecipeProject.WebApi.Controllers
         [HttpPost("register")]
         [AllowAnonymous]
 
-        public async Task<ActionResult<RegisteredUserDto>> Register(RegisteredUserDto registeredUserDto)
+        public async Task<ActionResult<RegisteredUserDto>> Register(RegisterUser registerUser)
         {
-            if (await UserAlreadyExists(registeredUserDto.JwtToken))
+            if (await UserAlreadyExists(registerUser.Email))
             {
                 return BadRequest("Email must be unique");
             }
@@ -57,8 +56,8 @@ namespace RecipeProject.WebApi.Controllers
             var hmac = new HMACSHA512();
             var user = new User()
             {
-                Email = registeredUserDto.JwtToken.ToLower(),
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registeredUserDto.Password)),
+                Email = registerUser.Email.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerUser.Password)),
                 PasswordSalt = hmac.Key
             };
 
@@ -73,7 +72,7 @@ namespace RecipeProject.WebApi.Controllers
         }
         
         [HttpPost("login")]
-        [AllowAnonymous]
+        //[AllowAnonymous]
 
         public async Task<ActionResult<RegisteredUserDto>> Login(LoginDto loginDto)
         {
