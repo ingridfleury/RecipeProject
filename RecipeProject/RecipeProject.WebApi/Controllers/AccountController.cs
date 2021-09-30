@@ -22,7 +22,7 @@ namespace RecipeProject.WebApi.Controllers
         public AccountController(DataBase context, ITokenService tokenService)
         {
             _context = context;
-            TokenService = tokenService;
+            _tokenService = tokenService;
         }
         [HttpPost("registerquery")]
         public async Task<ActionResult<User>> Register(string name, string email, string password)

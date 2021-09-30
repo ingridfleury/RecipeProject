@@ -5,14 +5,19 @@ namespace RecipeProject.Domain.Model
 {
     public class Recipe
     {
+        // variáveis privadas > auto implemented prop > prop > ctor (do menor pro maior) > metodos publicos > metodos privados
+        
         private string _Name;
-
         private string _Preparation;
 
-        public int UserId { get; set; }
-        public int CategoryId { get; set; }
-        public int DificultyId { get; set; }
         public int RecipeId { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public int DificultyId { get; set; }
+        public Dificulty Dificulty { get; set; }
+
         public string Name
         {
             get
@@ -46,20 +51,17 @@ namespace RecipeProject.Domain.Model
         public IEnumerable<RecipeIngredients> Ingredients { get; set; }
         public Recipe()
         {
-
+            Ingredients = new List<RecipeIngredients>();
         }
-        public Recipe(string name, string preparationMethod)
-        {
 
+        public Recipe(string name, string preparationMethod) : this()
+        {
             Name = name;
             PreparationMethod = preparationMethod;
-            Ingredients = new List<RecipeIngredients>();
-
         }
 
         private bool ValidateName(string name)
         {
-
             if (string.IsNullOrEmpty(name))
             {
                 throw new ArgumentNullException("Name can't be empty or null");

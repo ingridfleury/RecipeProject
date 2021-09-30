@@ -59,7 +59,8 @@ namespace RecipeProject.Application.Services
         {
             Recipe recipe = new()
             {
-                RecipeId = obj.RecipeId
+                RecipeId = obj.RecipeId,
+
             };
 
             Recipe r = _recipeRepository.Create(recipe);
