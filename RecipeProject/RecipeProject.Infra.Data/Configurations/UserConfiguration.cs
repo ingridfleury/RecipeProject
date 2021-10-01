@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RecipeProject.Domain.Model;
-using System;
 
 namespace RecipeProject.Infra.Data.Configurations
 {

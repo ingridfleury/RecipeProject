@@ -80,7 +80,7 @@ namespace RecipeProject.Infra.Data
                 "Verifique o sal junte um pouco de pimenta. Misture e deixe cozinhar mais um pouco mexendo de vez em quando." +
                 "Sirva quente, acompanhe com mandioca frita, couve de caldo verde salteada, farofa, laranja cortada em meias luas, " +
                 "arroz seco e salada.",
-                                                
+
 
             });
 
@@ -99,7 +99,7 @@ namespace RecipeProject.Infra.Data
 
                 Category = new Category()
                 {
-                    CategoryId = 3 ,
+                    CategoryId = 3,
                     Name = "China",
                 },
 
@@ -162,7 +162,7 @@ namespace RecipeProject.Infra.Data
 
                 User = new User()
                 {
-                    Id = 5 ,
+                    Id = 5,
                     Name = "Ricardo",
                 },
 

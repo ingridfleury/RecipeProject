@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace RecipeProject.WebApi.Controllers
 {
     public class AccountController : BaseController
-    {   
+    {
 
         private readonly DataBase _context;
         private readonly ITokenService _tokenService;
@@ -42,7 +42,7 @@ namespace RecipeProject.WebApi.Controllers
 
 
         }
-       
+
         [HttpPost("register")]
         [AllowAnonymous]
 
@@ -70,7 +70,7 @@ namespace RecipeProject.WebApi.Controllers
                 JwtToken = _tokenService.CreateToken(user)
             };
         }
-        
+
         [HttpPost("login")]
         //[AllowAnonymous]
 
@@ -88,7 +88,7 @@ namespace RecipeProject.WebApi.Controllers
 
             for (int i = 0; i < passwordHash.Length; i++)
             {
-                if(passwordHash[0] == user.PasswordHash[0])
+                if (passwordHash[0] == user.PasswordHash[0])
                 {
                     return Unauthorized("Invalid credentials");
                 }

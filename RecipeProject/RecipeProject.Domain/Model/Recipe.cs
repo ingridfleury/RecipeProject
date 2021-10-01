@@ -6,7 +6,7 @@ namespace RecipeProject.Domain.Model
     public class Recipe
     {
         // variáveis privadas > auto implemented prop > prop > ctor (do menor pro maior) > metodos publicos > metodos privados
-        
+
         private string _Name;
         private string _Preparation;
 

@@ -8,7 +8,7 @@ namespace RecipeProject.Infra.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<RecipeIngredients> builder)
         {
-            builder.HasKey(ri => new { ri.RecipeId, ri.IngredientId});
+            builder.HasKey(ri => new { ri.RecipeId, ri.IngredientId });
         }
     }
 }

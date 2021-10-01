@@ -2,7 +2,7 @@
 
 namespace RecipeProject.Domain.Model
 {
-    public class User 
+    public class User
     {
         private string _Name;
 
@@ -40,7 +40,7 @@ namespace RecipeProject.Domain.Model
         }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
-       
+
 
         private bool ValidateName(string name)
         {
@@ -55,7 +55,7 @@ namespace RecipeProject.Domain.Model
                 throw new ArgumentException("name can't be less then 2");
             }
 
-            if(name.Length >= 20)
+            if (name.Length >= 20)
             {
                 throw new ArgumentException("name can't be more then 20");
 

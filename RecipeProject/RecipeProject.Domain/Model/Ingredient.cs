@@ -18,7 +18,7 @@ namespace RecipeProject.Domain.Model
         }
 
         public Ingredient(string name)
-        {            
+        {
             Name = name;
         }
     }

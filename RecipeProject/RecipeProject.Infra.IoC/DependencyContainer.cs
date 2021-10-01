@@ -28,7 +28,7 @@ namespace RecipeProject.Infra.IoC
             services.RegisterServices(config);
         }
 
-        public static void  RegisterServices(this IServiceCollection services, IConfiguration config)
+        public static void RegisterServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
