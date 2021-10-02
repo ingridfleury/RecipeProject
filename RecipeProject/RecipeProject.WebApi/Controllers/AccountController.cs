@@ -13,7 +13,6 @@ namespace RecipeProject.WebApi.Controllers
 {
     public class AccountController : BaseController
     {
-
         private readonly DataBase _context;
         private readonly ITokenService _tokenService;
 

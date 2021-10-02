@@ -6,8 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using RecipeProject.Application.Contracts;
-using RecipeProject.Application.Services;
 using RecipeProject.Infra.IoC;
 using System.Text;
 
