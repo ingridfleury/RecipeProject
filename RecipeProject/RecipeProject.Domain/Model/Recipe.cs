@@ -15,8 +15,8 @@ namespace RecipeProject.Domain.Model
         public Category Category { get; set; }
         public int DificultyId { get; set; }
         public Dificulty Dificulty { get; set; }
-        // public IEnumerable<Rating> Ratings { get; set; }
-        // public IEnumerable<Comment> Comments { get; set; }
+        public IEnumerable<Rating> Ratings { get; set; }
+        public IEnumerable<Comment> Comments { get; set; }
         public IEnumerable<RecipeIngredients> Ingredients { get; set; }
 
         public string Name

@@ -16,10 +16,8 @@ namespace RecipeProject.Domain.Model
 
         }
 
-        public Comment(int userId, int recipeId, DateTime dateTime, string commentText)
+        public Comment(DateTime dateTime, string commentText)
         {
-            UserId = userId;
-            RecipeId = recipeId;
             DateTime = dateTime;
             CommentText = commentText;
         }

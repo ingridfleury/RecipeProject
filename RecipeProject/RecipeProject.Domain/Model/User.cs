@@ -40,8 +40,8 @@ namespace RecipeProject.Domain.Model
 
             }
         }
-        // public IEnumerable<Comment> Comments { get; set; }
-        // public IEnumerable<Rating> Ratings { get; set; }
+        public IEnumerable<Comment> Comments { get; set; }
+        public IEnumerable<Rating> Ratings { get; set; }
 
 
         private bool ValidateName(string name)
