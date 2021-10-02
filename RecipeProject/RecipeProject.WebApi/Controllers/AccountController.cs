@@ -17,35 +17,14 @@ namespace RecipeProject.WebApi.Controllers
         private readonly DataBase _context;
         private readonly ITokenService _tokenService;
 
-
         public AccountController(DataBase context, ITokenService tokenService)
         {
             _context = context;
             _tokenService = tokenService;
         }
-        [HttpPost("registerquery")]
-        public async Task<ActionResult<User>> Register(string name, string email, string password)
-        {
-            var hmac = new HMACSHA512();
-            var user = new User()
-            {
-                Name = name,
-                Email = email,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
-                PasswordSalt = hmac.Key
-            };
-
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
-
-            return user;
-
-
-        }
 
         [HttpPost("register")]
         [AllowAnonymous]
-
         public async Task<ActionResult<RegisteredUserDto>> Register(RegisterUser registerUser)
         {
             if (await UserAlreadyExists(registerUser.Email))
@@ -56,6 +35,7 @@ namespace RecipeProject.WebApi.Controllers
             var hmac = new HMACSHA512();
             var user = new User()
             {
+                Name = registerUser.Name,
                 Email = registerUser.Email.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerUser.Password)),
                 PasswordSalt = hmac.Key
@@ -72,8 +52,7 @@ namespace RecipeProject.WebApi.Controllers
         }
 
         [HttpPost("login")]
-        //[AllowAnonymous]
-
+        [AllowAnonymous]
         public async Task<ActionResult<RegisteredUserDto>> Login(LoginDto loginDto)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.Email == loginDto.Email);
@@ -83,30 +62,28 @@ namespace RecipeProject.WebApi.Controllers
                 return Unauthorized("Invalid credentials");
             }
 
-            var hmac = new HMACSHA512(user.PasswordSalt);
-            var passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
+            using var hmac = new HMACSHA512(user.PasswordSalt);
 
-            for (int i = 0; i < passwordHash.Length; i++)
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
+
+            for (int i = 0; i < computedHash.Length; i++)
             {
-                if (passwordHash[0] == user.PasswordHash[0])
+                if (computedHash[i] != user.PasswordHash[i])
                 {
-                    return Unauthorized("Invalid credentials");
+                    return Unauthorized("Invalid password");
                 }
-
             }
+
             return new RegisteredUserDto()
             {
                 Id = user.Id,
                 JwtToken = _tokenService.CreateToken(user)
             };
-
-
         }
+
         private async Task<bool> UserAlreadyExists(string email)
         {
             return await _context.Users.AnyAsync(x => x.Email.ToLower() == email.ToLower());
-
         }
-
     }
 }

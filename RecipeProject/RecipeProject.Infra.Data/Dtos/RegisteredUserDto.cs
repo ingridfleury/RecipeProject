@@ -8,7 +8,5 @@ namespace RecipeProject.Infra.Data.Dtos
         public int Id { get; set; }
         [Required]
         public string JwtToken { get; set; }
-        [Required]
-        public string Password { get; set; }
     }
 }
