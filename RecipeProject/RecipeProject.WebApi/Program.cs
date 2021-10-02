@@ -6,34 +6,28 @@ using Microsoft.Extensions.Logging;
 using RecipeProject.Infra.Data;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RecipeProject.WebApi
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            // Startup // DI Container //
-            var scope = host.Services.CreateScope();
-
+            using var scope = host.Services.CreateScope();
             var services = scope.ServiceProvider;
-
             var context = services.GetRequiredService<DataBase>();
 
             try
             {
-                if (!context.Recipes.Any())
+                if (!await context.Recipes.AnyAsync())
                 {
-                    context.Database.Migrate();
-
-                    context.Recipes.AddRange(SeedData.Seed()); // In Memory
-
-                    context.SaveChanges();
+                    await context.Database.MigrateAsync();
+                    await context.Recipes.AddRangeAsync(SeedData.Seed()); // In Memory
+                    await context.SaveChangesAsync();
                 }
-
             }
-
             catch (Exception ex)
             {
                 var logger = services.GetRequiredService<ILogger<Program>>();

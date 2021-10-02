@@ -5,7 +5,7 @@ namespace RecipeProject.Domain.Model
     public class Dificulty
     {
 
-        public int DificultyId { get; set; }
+        public int Id { get; set; }
         public DificultyOption DificultyDefinition { get; set; }
         private Dificulty()
         {

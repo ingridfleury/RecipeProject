@@ -34,7 +34,7 @@ namespace RecipeProject.Infra.IoC
             services.AddScoped<IRecipeRepository, RecipeRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IRecipeService, RecipeService>();
-
+            services.AddScoped<ITokenService, TokenService>();
         }
     }
 }

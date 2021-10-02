@@ -45,8 +45,6 @@ namespace RecipeProject.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RecipeProject.WebAPI", Version = "v1" });
             });
-
-            services.AddScoped<ITokenService, TokenService>();
         }
 
 
