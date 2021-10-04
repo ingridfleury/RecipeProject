@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RecipeProject.Domain.Model
 {
-    public class User 
+    public class User
     {
         private string _Name;
-
         private string _Email;
 
         public int Id { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
         public string Name
         {
             get
@@ -38,9 +40,9 @@ namespace RecipeProject.Domain.Model
 
             }
         }
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
-       
+        public IEnumerable<Comment> Comments { get; set; }
+        public IEnumerable<Rating> Ratings { get; set; }
+
 
         private bool ValidateName(string name)
         {
@@ -55,7 +57,7 @@ namespace RecipeProject.Domain.Model
                 throw new ArgumentException("name can't be less then 2");
             }
 
-            if(name.Length >= 20)
+            if (name.Length >= 20)
             {
                 throw new ArgumentException("name can't be more then 20");
 

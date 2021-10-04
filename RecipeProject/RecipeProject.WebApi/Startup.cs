@@ -6,8 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using RecipeProject.Application.Contracts;
-using RecipeProject.Application.Services;
 using RecipeProject.Infra.IoC;
 using System.Text;
 
@@ -28,17 +26,20 @@ namespace RecipeProject.WebApi
         {
             // add authorization
 
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //    .AddJwtBearer(options =>
-            //   {
-            //       options.TokenValidationParameters = new TokenValidationParameters()
-            //       {
-            //           ValidateIssuerSigningKey = true,
-            //           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"])),
-            //           ValidateIssuer = false,
-            //           ValidateAudience = false
-            //       };
-            //   });
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    // Tell authorization how to validate the token
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        // Validate the issuer signing key (our API is going to sign the token)
+                        ValidateIssuerSigningKey = true,
+                        // How was it signed
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["TokenKey"])),
+                        ValidateIssuer = false, // Issuer: API Server
+                        ValidateAudience = false // Audience: Angular Application
+                    };
+                });
 
             services.AddApiConfigurations(_config);
 
@@ -48,8 +49,6 @@ namespace RecipeProject.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RecipeProject.WebAPI", Version = "v1" });
             });
-
-            services.AddScoped<ITokenService, TokenService>();
         }
 
 
@@ -65,11 +64,9 @@ namespace RecipeProject.WebApi
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseCors(x => { x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();});
+            app.UseCors(x => { x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });
 
-            
-
-            //app.UseAuthentication();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

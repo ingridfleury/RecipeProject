@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RecipeProject.Application.Contracts;
 using RecipeProject.Application.Dto;
 using System.Collections.Generic;
 
 namespace RecipeProject.WebApi.Controllers
 {
-    //[Authorize]
     public class RecipeController : BaseController
     {
         private readonly IRecipeService _recipeService;

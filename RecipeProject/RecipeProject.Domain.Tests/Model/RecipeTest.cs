@@ -67,7 +67,7 @@ namespace RecipeProject.Domain.Tests.Model
         {
             // Arrange
 
-            string name ="Carbonara";
+            string name = "Carbonara";
             string preparation = "Pegue uma panela";
 
             // Act

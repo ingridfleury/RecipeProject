@@ -2,7 +2,6 @@
 using RecipeProject.Application.Dto;
 using RecipeProject.Domain.Model;
 using RecipeProject.Infra.Data.Repositories;
-using System;
 using System.Collections.Generic;
 
 namespace RecipeProject.Application.Services
@@ -26,7 +25,7 @@ namespace RecipeProject.Application.Services
             {
                 var recipeDto = new RecipeDto()
                 {
-                    RecipeId = recipe.RecipeId,
+                    RecipeId = recipe.Id,
                     Name = recipe.Name,
                 };
 
@@ -41,14 +40,14 @@ namespace RecipeProject.Application.Services
         {
             Recipe recipe = new()
             {
-                RecipeId = id
+                Id = id
             };
 
             Recipe r = _recipeRepository.GetById(id);
 
             RecipeDto returnRecipe = new()
             {
-                RecipeId = r.RecipeId
+                RecipeId = r.Id
             };
 
             return returnRecipe;
@@ -59,7 +58,7 @@ namespace RecipeProject.Application.Services
         {
             Recipe recipe = new()
             {
-                RecipeId = obj.RecipeId,
+                Id = obj.RecipeId,
 
             };
 
@@ -67,7 +66,7 @@ namespace RecipeProject.Application.Services
 
             RecipeDto returnRecipe = new()
             {
-                RecipeId = r.RecipeId
+                RecipeId = r.Id
             };
 
             return returnRecipe;
@@ -78,14 +77,14 @@ namespace RecipeProject.Application.Services
         {
             Recipe recipe = new()
             {
-                RecipeId = obj.RecipeId
+                Id = obj.RecipeId
             };
 
             Recipe r = _recipeRepository.Update(recipe);
 
             RecipeDto returnRecipe = new()
             {
-                RecipeId = r.RecipeId
+                RecipeId = r.Id
             };
 
             return returnRecipe;
@@ -95,14 +94,14 @@ namespace RecipeProject.Application.Services
         {
             Recipe recipe = new()
             {
-                RecipeId = obj.RecipeId
+                Id = obj.RecipeId
             };
 
             Recipe r = _recipeRepository.Delete(recipe);
 
             RecipeDto returnRecipe = new()
             {
-                RecipeId = r.RecipeId
+                RecipeId = r.Id
             };
 
             return returnRecipe;

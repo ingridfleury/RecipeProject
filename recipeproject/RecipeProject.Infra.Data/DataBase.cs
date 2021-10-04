@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RecipeProject.Domain.Model;
 
-
-
 namespace RecipeProject.Infra.Data
 {
     public class DataBase : DbContext
@@ -12,8 +10,8 @@ namespace RecipeProject.Infra.Data
 
         public DataBase(DbContextOptions options) : base(options)
         {
-
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataBase).Assembly);

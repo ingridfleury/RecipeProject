@@ -2,7 +2,7 @@
 
 namespace RecipeProject.Infra.Data.Repositories
 {
-    public interface IRecipeRepository : IRepository<Recipe> 
+    public interface IRecipeRepository : IRepository<Recipe>
     {
 
     }

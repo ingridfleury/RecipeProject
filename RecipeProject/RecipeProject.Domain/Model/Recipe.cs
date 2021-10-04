@@ -5,18 +5,19 @@ namespace RecipeProject.Domain.Model
 {
     public class Recipe
     {
-        // variáveis privadas > auto implemented prop > prop > ctor (do menor pro maior) > metodos publicos > metodos privados
-        
         private string _Name;
         private string _Preparation;
 
-        public int RecipeId { get; set; }
+        public int Id { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public int DificultyId { get; set; }
         public Dificulty Dificulty { get; set; }
+        public IEnumerable<Rating> Ratings { get; set; }
+        public IEnumerable<Comment> Comments { get; set; }
+        public IEnumerable<RecipeIngredients> Ingredients { get; set; }
 
         public string Name
         {
@@ -48,7 +49,7 @@ namespace RecipeProject.Domain.Model
                 }
             }
         }
-        public IEnumerable<RecipeIngredients> Ingredients { get; set; }
+
         public Recipe()
         {
             Ingredients = new List<RecipeIngredients>();
@@ -88,13 +89,12 @@ namespace RecipeProject.Domain.Model
                 throw new ArgumentNullException("Preparation can't be empty or null");
             }
 
-            if (preparation.Length >= 1000)
+            if (preparation.Length >= 2500)
             {
                 throw new ArgumentException("The preparation can't has more then 1000 characters.");
             }
 
             return true;
         }
-
     }
 }

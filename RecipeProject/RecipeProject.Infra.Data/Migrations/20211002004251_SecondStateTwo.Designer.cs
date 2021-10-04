@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecipeProject.Infra.Data;
 
 namespace RecipeProject.Infra.Data.Migrations
 {
     [DbContext(typeof(DataBase))]
-    partial class DataBaseModelSnapshot : ModelSnapshot
+    [Migration("20211002004251_SecondStateTwo")]
+    partial class SecondStateTwo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,17 +130,7 @@ namespace RecipeProject.Infra.Data.Migrations
                     b.Property<int>("RatingSacale")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RecipeId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("RecipeId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Rating");
                 });
@@ -245,22 +237,6 @@ namespace RecipeProject.Infra.Data.Migrations
                     b.Navigation("MeasureUnit");
                 });
 
-            modelBuilder.Entity("RecipeProject.Domain.Model.Rating", b =>
-                {
-                    b.HasOne("RecipeProject.Domain.Model.Recipe", "Recipe")
-                        .WithMany("Ratings")
-                        .HasForeignKey("RecipeId");
-
-                    b.HasOne("RecipeProject.Domain.Model.User", "User")
-                        .WithMany("Ratings")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Recipe");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("RecipeProject.Domain.Model.Recipe", b =>
                 {
                     b.HasOne("RecipeProject.Domain.Model.Category", "Category")
@@ -317,15 +293,11 @@ namespace RecipeProject.Infra.Data.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Ingredients");
-
-                    b.Navigation("Ratings");
                 });
 
             modelBuilder.Entity("RecipeProject.Domain.Model.User", b =>
                 {
                     b.Navigation("Comments");
-
-                    b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
         }

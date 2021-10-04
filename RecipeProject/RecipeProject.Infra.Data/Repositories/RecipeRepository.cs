@@ -6,7 +6,7 @@ namespace RecipeProject.Infra.Data.Repositories
     {
         public RecipeRepository(DataBase context) : base(context)
         {
-            
+
         }
 
     }
