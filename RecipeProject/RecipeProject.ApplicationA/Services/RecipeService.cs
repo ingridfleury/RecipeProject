@@ -27,7 +27,9 @@ namespace RecipeProject.Application.Services
                 var recipeDto = new RecipeDto()
                 {
                     RecipeId = recipe.RecipeId,
+                    UserId = recipe.UserId,
                     Name = recipe.Name,
+                    PreparationMethod = recipe.PreparationMethod,
                 };
 
                 listDtos.Add(recipeDto);
@@ -60,7 +62,11 @@ namespace RecipeProject.Application.Services
             Recipe recipe = new()
             {
                 RecipeId = obj.RecipeId,
-
+               CategoryId = obj.CategoryId,
+               DificultyId = obj.DificultyId,
+               UserId = obj.UserId,
+               Name = obj.Name,
+               PreparationMethod = obj.PreparationMethod,
             };
 
             Recipe r = _recipeRepository.Create(recipe);
