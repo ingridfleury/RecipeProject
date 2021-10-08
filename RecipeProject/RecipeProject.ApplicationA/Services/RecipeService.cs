@@ -62,10 +62,10 @@ namespace RecipeProject.Application.Services
             Recipe recipe = new()
             {
                 RecipeId = obj.RecipeId,
-               CategoryId = obj.CategoryId,
-               DificultyId = obj.DificultyId,
-               UserId = obj.UserId,
-               Name = obj.Name,
+                CategoryId = obj.CategoryId,
+                DificultyId = obj.DificultyId,
+                UserId = obj.UserId,
+                Name = obj.Name,
                PreparationMethod = obj.PreparationMethod,
             };
 

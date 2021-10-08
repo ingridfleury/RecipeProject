@@ -9,6 +9,7 @@ namespace RecipeProject.Infra.Data
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Category> Category { get; set; }
 
         public DataBase(DbContextOptions options) : base(options)
         {

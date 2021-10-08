@@ -66,7 +66,7 @@ namespace RecipeProject.WebApi.Controllers
 
             return new RegisteredUserDto()
             {
-                Id = user.Id,
+                Id = user.UserId,
                 JwtToken = _tokenService.CreateToken(user)
             };
         }
@@ -96,7 +96,7 @@ namespace RecipeProject.WebApi.Controllers
             }
             return new RegisteredUserDto()
             {
-                Id = user.Id,
+                Id = user.UserId,
                 JwtToken = _tokenService.CreateToken(user)
             };
 

@@ -8,7 +8,7 @@ namespace RecipeProject.Domain.Model
 
         private string _Email;
 
-        public int Id { get; set; }
+        public int UserId { get; set; }
         public string Name
         {
             get
