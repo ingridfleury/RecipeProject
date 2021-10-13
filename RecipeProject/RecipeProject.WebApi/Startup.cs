@@ -10,6 +10,7 @@ using RecipeProject.Application.Contracts;
 using RecipeProject.Application.Services;
 using RecipeProject.Infra.IoC;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace RecipeProject.WebApi
 {
@@ -42,7 +43,10 @@ namespace RecipeProject.WebApi
 
             services.AddApiConfigurations(_config);
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -65,9 +69,9 @@ namespace RecipeProject.WebApi
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseCors(x => { x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();});
+            app.UseCors(x => { x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });
 
-            
+
 
             //app.UseAuthentication();
 
